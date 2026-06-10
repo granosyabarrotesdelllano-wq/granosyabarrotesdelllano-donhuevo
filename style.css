@@ -54,14 +54,13 @@ html {
     align-items: center;
 }
 
-/* Dejamos el espacio izquierdo del header limpio para la superposición visual de logos */
 .header-brand-title {
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--color-text-muted);
-    margin-left: 140px; /* Margen estructural para no colisionar con los logos dinámicos */
+    margin-left: 140px; 
 }
 
 .nav-menu {
@@ -98,7 +97,6 @@ html {
 /* ==========================================================================
    3. INGENIERÍA CSS PURO PARA LOGOS DINÁMICOS (SCROLL EFFECT)
    ========================================================================== */
-/* Cada sección actúa como el contenedor lógico del logo */
 section {
     position: relative;
     min-height: 85vh;
@@ -108,20 +106,18 @@ section {
     justify-content: center;
 }
 
-/* Contenedor sticky que mantiene el logo pegado en la barra superior mientras recorre la sección */
 .sticky-logo-container {
     position: absolute;
     top: 0;
-    left: calc((100vw - 1200px) / 2 + 30px); /* Alineación adaptativa con el layout interno */
+    left: calc((100vw - 1200px) / 2 + 30px); 
     height: 100%;
     width: 120px;
-    pointer-events: none; /* Permite interacciones detrás del elemento */
-    z-index: 1001; /* Superior al header fijo */
+    pointer-events: none; 
+    z-index: 1001; 
 }
 
 .dynamic-logo {
     position: sticky;
-    /* Ajuste milimétrico para centrar el logo verticalmente dentro del header fijo */
     top: calc((var(--header-height) - 75px) / 2); 
     width: 75px;
     height: 75px;
@@ -129,18 +125,16 @@ section {
     transition: var(--transition-ux);
 }
 
-/* Ajuste posicional en pantallas ultra anchas o estrechas */
 @media (max-width: 1300px) {
     .sticky-logo-container { left: 40px; }
     .header-brand-title { margin-left: 100px; }
 }
 
-/* CONTENIDO INTERNO DE LAS SECCIONES */
 .section-content {
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
-    padding-left: 60px; /* Previene superposiciones con los logos */
+    padding-left: 60px; 
 }
 
 .badge {
@@ -158,7 +152,7 @@ section {
 /* ==========================================================================
    4. PERSONALIZACIÓN ESTÉTICA DE SECCIONES
    ========================================================================== */
-/* HERO (FUSIÓN) */
+/* HERO */
 .hero-section {
     background: linear-gradient(135deg, #2D1A15 0%, #150D0B 100%);
     color: white;
@@ -182,7 +176,7 @@ section {
 .btn-secondary { border: 2px solid rgba(255,255,255,0.3); color: white; }
 .btn-secondary:hover { background-color: white; color: var(--color-main-dark); }
 
-/* SECCIÓN 1: NOSOTROS (EMPRESA MADRE) */
+/* SECCIÓN 1: NOSOTROS */
 .about-section { background-color: white; }
 .primary-badge { background-color: #EFEBE9; color: var(--color-main-dark); }
 .about-section h2 { font-size: 2.4rem; color: var(--color-main-dark); margin-bottom: 20px; }
@@ -221,19 +215,17 @@ section {
 .font-adjust { padding-left: 0; max-width: 900px; }
 
 /* ==========================================================================
-   5. FILTRO INTERACTIVO DE CONVERSIÓN CON CSS PURO
+   5. FILTRO INTERACTIVO CON CSS PURO
    ========================================================================== */
 .filter-interactive-container {
     width: 100%;
     margin: 0 auto;
 }
 
-/* Ocultar los inputs de radio nativos */
 input[name="profile-filter"] {
     display: none;
 }
 
-/* Estructura de las Tabs de selección */
 .filter-tabs-labels {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -260,7 +252,6 @@ input[name="profile-filter"] {
 .tab-label i { font-size: 1.2rem; color: var(--color-text-muted); }
 .tab-label:hover { background-color: #EEEEEE; }
 
-/* Ocultamiento inicial de todos los paneles de respuesta */
 .panel-box {
     display: none;
     background-color: #FAFAFA;
@@ -271,9 +262,9 @@ input[name="profile-filter"] {
 }
 
 .panel-box h3 { margin-bottom: 12px; font-size: 1.4rem; color: var(--color-main-dark); }
-.panel-box p { color: var(--color-text-muted); margin-bottom: 25px; font-size: 1rem; }
+.panel-box p { color: var(--color-text-muted); margin-bottom: 25px; font-size: 1rem; line-height: 1.6; }
 
-/* INTERCONEXIÓN LOGICA: Muestra el panel correspondiente según el Radio seleccionado */
+/* Lógica Interactiva CSS */
 #perfil-tienda:checked ~ .filter-tabs-labels .label-tienda,
 #perfil-restaurante:checked ~ .filter-tabs-labels .label-restaurante,
 #perfil-distribuidor:checked ~ .filter-tabs-labels .label-distribuidor,
@@ -297,7 +288,6 @@ input[name="profile-filter"] {
     display: block;
 }
 
-/* BOTONES DE WHATSAPP FINALES */
 .whatsapp-actions {
     display: flex;
     gap: 15px;
@@ -329,7 +319,7 @@ input[name="profile-filter"] {
 }
 
 .btn-wa-submit.backend-num {
-    background-color: #00796B; /* Variación tonal sutil para diferenciar la línea 2 */
+    background-color: #00796B; 
 }
 .btn-wa-submit.backend-num:hover {
     background-color: #004D40;
@@ -392,29 +382,16 @@ input[name="profile-filter"] {
         height: 90px;
     }
 
-    .header-brand-title {
-        display: none; /* Simplifica el header en dispositivos móviles */
-    }
-
-    .section-content {
-        padding-left: 0;
-    }
-
-    section {
-        min-height: auto;
-        padding: 60px 20px;
-    }
-
-    .hero-section {
-        padding-top: calc(var(--header-height) + 40px);
-    }
-
+    .header-brand-title { display: none; }
+    .section-content { padding-left: 0; }
+    section { min-height: auto; padding: 60px 20px; }
+    .hero-section { padding-top: calc(var(--header-height) + 40px); }
     .hero-section h2 { font-size: 2.2rem; }
     .values-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
-    .nav-menu { display: none; } /* En desarrollo posterior puedes suplirlo por un menú Hamburguesa */
+    .nav-menu { display: none; } 
     .hero-buttons { flex-direction: column; }
     .whatsapp-actions { flex-direction: column; }
 }
