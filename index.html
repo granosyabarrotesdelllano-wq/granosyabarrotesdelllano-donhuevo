@@ -1,12 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emprendimiento</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Granos y Abarrotes del Llano | Don Huevo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-brand-title">
+                <span>Distribuidora Oficial</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#ruta-tat">Ruta TaT</a>
+                <a href="#contacto" class="btn-nav-contact">Hacer Pedido</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero-section">
+        <div class="sticky-logo-container">
+            <img src="logo-fusion.png" alt="Granos y Abarrotes del Llano + Don Huevo" class="dynamic-logo">
+        </div>
+        <div class="section-content">
+            <span class="badge">Abastecimiento Integral</span>
+            <h2>La solución completa para tu hogar y comercio</h2>
+            <p>Unimos la solidez en la distribución de la canasta básica con la frescura e inmediatez de nuestra línea de huevos. Todo en un solo lugar, con la logística que el Llano necesita.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn-primary">Iniciar Pedido</a>
+                <a href="#nosotros" class="btn-secondary">Conocer Más</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="about-section">
+        <div class="sticky-logo-container">
+            <img src="logo-granos.png" alt="Granos y Abarrotes del Llano" class="dynamic-logo">
+        </div>
+        <div class="section-content">
+            <span class="badge primary-badge">Empresa Madre</span>
+            <h2>Granos & Abarrotes del Llano</h2>
+            <p>Somos la base del abastecimiento regional, manejando una robusta variedad de productos de la canasta familiar tanto al por mayor como al detal. </p>
+            
+            <div class="values-grid">
+                <div class="value-item">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <h3>Calidad Humana</h3>
+                    <p>Nuestra insignia primordial. Tratamos a cada cliente como parte de la familia.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                    <h3>Cumplimiento Inquebrantable</h3>
+                    <p>No fallamos con las visitas ni con los tiempos de entrega pactados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ruta-tat" class="tat-section">
+        <div class="sticky-logo-container">
+            <img src="logo-don-huevo.png" alt="Don Huevo" class="dynamic-logo">
+        </div>
+        <div class="section-content">
+            <span class="badge secondary-badge">Línea de Distribución</span>
+            <h2>Nuestra Ruta Tienda a Tienda (TaT)</h2>
+            <p>A través de nuestra marca especializada <strong>Don Huevo</strong>, operamos una red logística intensiva que abastece de manera directa, puntual y eficiente a los negocios del sector.</p>
+            
+            <div class="target-cards">
+                <div class="target-card"><i class="fa-solid fa-shop"></i> Tiendas y Fruvers</div>
+                <div class="target-card"><i class="fa-solid fa-utensils"></i> Restaurantes</div>
+                <div class="target-card"><i class="fa-solid fa-egg"></i> Distribuidoras de Huevo</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <div class="sticky-logo-container">
+            <img src="logo-fusion.png" alt="Fusión Comercial" class="dynamic-logo">
+        </div>
+        
+        <div class="section-content font-adjust">
+            <h2>¿Cómo deseas realizar tu pedido?</h2>
+            <p class="subtitle">Selecciona tu perfil para asignarte un asesor y activar tu canal de atención prioritario por WhatsApp:</p>
+
+            <div class="filter-interactive-container">
+                
+                <input type="radio" name="profile-filter" id="perfil-tienda" checked>
+                <input type="radio" name="profile-filter" id="perfil-restaurante">
+                <input type="radio" name="profile-filter" id="perfil-distribuidor">
+                <input type="radio" name="profile-filter" id="perfil-detal">
+
+                <div class="filter-tabs-labels">
+                    <label for="perfil-tienda" class="tab-label label-tienda">
+                        <i class="fa-solid fa-shop"></i> Tienda / Fruver
+                    </label>
+                    <label for="perfil-restaurante" class="tab-label label-restaurante">
+                        <i class="fa-solid fa-utensils"></i> Restaurante
+                    </label>
+                    <label for="perfil-distribuidor" class="tab-label label-distribuidor">
+                        <i class="fa-solid fa-boxes-packing"></i> Distribuidora
+                    </label>
+                    <label for="perfil-detal" class="tab-label label-detal">
+                        <i class="fa-solid fa-basket-shopping"></i> Consumidor Final
+                    </label>
+                </div>
+
+                <div class="filter-panels-content">
+                    
+                    <div class="panel-box panel-tienda">
+                        <h3>Atención Comercial TaT para Tiendas y Fruvers</h3>
+                        <p>Accede a precios de lista mayorista, rutas programadas semanales y portafolio completo para surtir tu negocio sin complicaciones.</p>
+                        <div class="whatsapp-actions">
+                            <a href="https://wa.me/573193526392?text=Hola,%20solicito%20atención%20mayorista%20para%20una%20Tienda/Fruver." target="_blank" class="btn-wa-submit">
+                                <i class="fa-brands fa-whatsapp"></i> Contactar Línea 1 (+57 319)
+                            </a>
+                            <a href="https://wa.me/573143588055?text=Hola,%20solicito%20atención%20mayorista%20para%20una%20Tienda/Fruver." target="_blank" class="btn-wa-submit backend-num">
+                                <i class="fa-brands fa-whatsapp"></i> Contactar Línea 2 (+57 314)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="panel-box panel-restaurante">
+                        <h3>Suministro Confiable para Restaurantes y Negocios de Comida</h3>
+                        <p>Garantizamos el volumen diario o semanal que tu cocina requiere con altos estándares de limpieza, frescura y facturación transparente.</p>
+                        <div class="whatsapp-actions">
+                            <a href="https://wa.me/573193526392?text=Hola,%20requiero%20información%20de%20suministros%20para%20un%20Restaurante." target="_blank" class="btn-wa-submit">
+                                <i class="fa-brands fa-whatsapp"></i> Contactar Línea 1 (+57 319)
+                            </a>
+                            <a href="https://wa.me/573143588055?text=Hola,%20requiero%20información%20de%20suministros%20para%20un%20Restaurante." target="_blank" class="btn-wa-submit backend-num">
+                                <i class="fa-brands fa-whatsapp"></i> Contactar Línea 2 (+57 314)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="panel-box panel-distribuidor">
+                        <h3>Distribución de Huevo a Gran Escala</h3>
+                        <p>Para negocios aliados de distribución masiva y subdistribuidores de huevo fresco. Precios competitivos por volumen estructural.</p>
+                        <div class="whatsapp-actions">
+                            <a href="https://wa.me/573193526392?text=Hola,%20me%20interesa%20conocer%20los%20precios%20de%20distribución%20por%20volumen%20de%20huevo." target="_blank" class="btn-wa-submit">
+                                <i class="fa-brands fa-whatsapp"></i> Contactar Línea 1 (+57 319)
+                            </a>
+                            <a href="https://wa.me/573143588055?text=Hola,%20me%20interesa%20conocer%20los%20precios%20de%20distribución%20por%20volumen%20de%20huevo." target="_blank" class="btn-wa-submit backend-num">
+                                <i class="fa-brands fa-whatsapp"></i> Contactar Línea 2 (+57 314)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="panel-box panel-detal">
+                        <h3>Venta al Detal (Consumidor Final)</h3>
+                        <p>¿Quieres realizar las compras del hogar? Te atendemos de forma directa ofreciéndote la mejor calidad de la canasta familiar y huevos frescos en tu mesa.</p>
+                        <div class="whatsapp-actions">
+                            <a href="https://wa.me/573193526392?text=Hola,%20quiero%20hacer%20un%20pedido%20para%20consumo%20hogareño/al%20detal." target="_blank" class="btn-wa-submit">
+                                <i class="fa-brands fa-whatsapp"></i> Pedir por Línea 1 (+57 319)
+                            </a>
+                            <a href="https://wa.me/573143588055?text=Hola,%20quiero%20hacer%20un%20pedido%20para%20consumo%20hogareño/al%20detal." target="_blank" class="btn-wa-submit backend-num">
+                                <i class="fa-brands fa-whatsapp"></i> Pedir por Línea 2 (+57 314)
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p class="slogan">"Siempre atentos, siempre a la orden!"</p>
+            <div class="footer-separator"></div>
+            <p class="copyright">&copy; 2026 Granos y Abarrotes del Llano & Don Huevo. Calidad, cumplimiento y calidad humana.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

@@ -1,0 +1,420 @@
+/* ==========================================================================
+   1. VARIABLES DE MARCA Y REGLAS GENERALES
+   ========================================================================== */
+:root {
+    --color-main-dark: #3E2723;     /* Café elegante de Granos */
+    --color-accent-gold: #FFB300;   /* Amarillo Don Huevo */
+    --color-bg-light: #FAFAFA;
+    --color-text-dark: #212121;
+    --color-text-muted: #616161;
+    --color-whatsapp: #25D366;
+    --color-whatsapp-dark: #128C7E;
+    
+    --header-height: 80px;
+    --shadow-premium: 0 15px 35px rgba(0,0,0,0.06);
+    --radius-ui: 14px;
+    --transition-ux: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+}
+
+/* ==========================================================================
+   2. ARQUITECTURA DEL HEADER ESTÁTICO
+   ========================================================================== */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 999;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+}
+
+.header-container {
+    max-width: 1300px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Dejamos el espacio izquierdo del header limpio para la superposición visual de logos */
+.header-brand-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+    margin-left: 140px; /* Margen estructural para no colisionar con los logos dinámicos */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-ux);
+}
+
+.nav-menu a:hover {
+    color: var(--color-accent-gold);
+}
+
+.nav-menu .btn-nav-contact {
+    background-color: var(--color-main-dark);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 50px;
+}
+
+.nav-menu .btn-nav-contact:hover {
+    background-color: var(--color-accent-gold);
+    color: var(--color-main-dark);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. INGENIERÍA CSS PURO PARA LOGOS DINÁMICOS (SCROLL EFFECT)
+   ========================================================================== */
+/* Cada sección actúa como el contenedor lógico del logo */
+section {
+    position: relative;
+    min-height: 85vh;
+    padding: 100px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Contenedor sticky que mantiene el logo pegado en la barra superior mientras recorre la sección */
+.sticky-logo-container {
+    position: absolute;
+    top: 0;
+    left: calc((100vw - 1200px) / 2 + 30px); /* Alineación adaptativa con el layout interno */
+    height: 100%;
+    width: 120px;
+    pointer-events: none; /* Permite interacciones detrás del elemento */
+    z-index: 1001; /* Superior al header fijo */
+}
+
+.dynamic-logo {
+    position: sticky;
+    /* Ajuste milimétrico para centrar el logo verticalmente dentro del header fijo */
+    top: calc((var(--header-height) - 75px) / 2); 
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    transition: var(--transition-ux);
+}
+
+/* Ajuste posicional en pantallas ultra anchas o estrechas */
+@media (max-width: 1300px) {
+    .sticky-logo-container { left: 40px; }
+    .header-brand-title { margin-left: 100px; }
+}
+
+/* CONTENIDO INTERNO DE LAS SECCIONES */
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 60px; /* Previene superposiciones con los logos */
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.15);
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   4. PERSONALIZACIÓN ESTÉTICA DE SECCIONES
+   ========================================================================== */
+/* HERO (FUSIÓN) */
+.hero-section {
+    background: linear-gradient(135deg, #2D1A15 0%, #150D0B 100%);
+    color: white;
+    padding-top: calc(var(--header-height) + 60px);
+}
+.hero-section h2 { font-size: 3.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 25px;}
+.hero-section p { font-size: 1.25rem; opacity: 0.85; margin-bottom: 40px; font-weight: 300;}
+
+.hero-buttons { display: flex; gap: 20px; }
+.btn-primary, .btn-secondary {
+    padding: 15px 32px;
+    border-radius: var(--radius-ui);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: var(--transition-ux);
+}
+.btn-primary { background-color: var(--color-accent-gold); color: var(--color-main-dark); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,179,0,0.3); }
+.btn-secondary { border: 2px solid rgba(255,255,255,0.3); color: white; }
+.btn-secondary:hover { background-color: white; color: var(--color-main-dark); }
+
+/* SECCIÓN 1: NOSOTROS (EMPRESA MADRE) */
+.about-section { background-color: white; }
+.primary-badge { background-color: #EFEBE9; color: var(--color-main-dark); }
+.about-section h2 { font-size: 2.4rem; color: var(--color-main-dark); margin-bottom: 20px; }
+.about-section p { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 40px; max-width: 700px; }
+
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.value-item i { font-size: 2.2rem; color: var(--color-main-dark); margin-bottom: 15px; display: block; }
+.value-item h3 { font-size: 1.25rem; margin-bottom: 10px; }
+.value-item p { font-size: 0.95rem; line-height: 1.5; }
+
+/* SECCIÓN 2: RUTA TAT */
+.tat-section { background-color: #FFFDE7; }
+.secondary-badge { background-color: var(--color-accent-gold); color: var(--color-main-dark); }
+.tat-section h2 { font-size: 2.4rem; color: var(--color-main-dark); margin-bottom: 20px; }
+.tat-section p { font-size: 1.1rem; color: var(--color-text-dark); margin-bottom: 40px; }
+
+.target-cards { display: flex; gap: 20px; flex-wrap: wrap; }
+.target-card {
+    background: white;
+    padding: 20px 30px;
+    border-radius: var(--radius-ui);
+    box-shadow: var(--shadow-premium);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    min-width: 220px;
+}
+.target-card i { color: var(--color-accent-gold); font-size: 1.3rem; }
+
+/* SECCIÓN CONTACTO */
+.contact-section { background-color: white; border-top: 1px solid #EEEEEE; }
+.contact-section h2 { font-size: 2.4rem; text-align: center; margin-bottom: 10px; }
+.contact-section .subtitle { text-align: center; color: var(--color-text-muted); margin-bottom: 40px; }
+.font-adjust { padding-left: 0; max-width: 900px; }
+
+/* ==========================================================================
+   5. FILTRO INTERACTIVO DE CONVERSIÓN CON CSS PURO
+   ========================================================================== */
+.filter-interactive-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Ocultar los inputs de radio nativos */
+input[name="profile-filter"] {
+    display: none;
+}
+
+/* Estructura de las Tabs de selección */
+.filter-tabs-labels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.tab-label {
+    background-color: #F5F5F5;
+    padding: 16px 20px;
+    border-radius: var(--radius-ui);
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-ux);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid transparent;
+}
+
+.tab-label i { font-size: 1.2rem; color: var(--color-text-muted); }
+.tab-label:hover { background-color: #EEEEEE; }
+
+/* Ocultamiento inicial de todos los paneles de respuesta */
+.panel-box {
+    display: none;
+    background-color: #FAFAFA;
+    border-radius: var(--radius-ui);
+    padding: 35px;
+    border: 1px solid #E0E0E0;
+    animation: fadeInTab 0.4s ease;
+}
+
+.panel-box h3 { margin-bottom: 12px; font-size: 1.4rem; color: var(--color-main-dark); }
+.panel-box p { color: var(--color-text-muted); margin-bottom: 25px; font-size: 1rem; }
+
+/* INTERCONEXIÓN LOGICA: Muestra el panel correspondiente según el Radio seleccionado */
+#perfil-tienda:checked ~ .filter-tabs-labels .label-tienda,
+#perfil-restaurante:checked ~ .filter-tabs-labels .label-restaurante,
+#perfil-distribuidor:checked ~ .filter-tabs-labels .label-distribuidor,
+#perfil-detal:checked ~ .filter-tabs-labels .label-detal {
+    background-color: var(--color-main-dark);
+    color: white;
+    border-color: var(--color-main-dark);
+}
+
+#perfil-tienda:checked ~ .filter-tabs-labels .label-tienda i,
+#perfil-restaurante:checked ~ .filter-tabs-labels .label-restaurante i,
+#perfil-distribuidor:checked ~ .filter-tabs-labels .label-distribuidor i,
+#perfil-detal:checked ~ .filter-tabs-labels .label-detal i {
+    color: var(--color-accent-gold);
+}
+
+#perfil-tienda:checked ~ .filter-panels-content .panel-tienda,
+#perfil-restaurante:checked ~ .filter-panels-content .panel-restaurante,
+#perfil-distribuidor:checked ~ .filter-panels-content .panel-distribuidor,
+#perfil-detal:checked ~ .filter-panels-content .panel-detal {
+    display: block;
+}
+
+/* BOTONES DE WHATSAPP FINALES */
+.whatsapp-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-wa-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    padding: 14px 28px;
+    border-radius: calc(var(--radius-ui) - 4px);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: var(--transition-ux);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.15);
+    flex: 1;
+    min-width: 260px;
+}
+
+.btn-wa-submit:hover {
+    background-color: var(--color-whatsapp-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+}
+
+.btn-wa-submit.backend-num {
+    background-color: #00796B; /* Variación tonal sutil para diferenciar la línea 2 */
+}
+.btn-wa-submit.backend-num:hover {
+    background-color: #004D40;
+}
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   6. FOOTER E INTERFAZ INFERIOR
+   ========================================================================== */
+.main-footer {
+    background-color: #1A100E;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.main-footer .slogan {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    letter-spacing: 0.5px;
+}
+
+.footer-separator {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-accent-gold);
+    margin: 20px auto;
+}
+
+.main-footer .copyright {
+    font-size: 0.85rem;
+    opacity: 0.5;
+}
+
+/* ==========================================================================
+   7. ADAPTABILIDAD SENSATA (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .sticky-logo-container {
+        position: relative;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+        height: auto;
+    }
+    
+    .dynamic-logo {
+        position: relative;
+        top: 0 !important;
+        width: 90px;
+        height: 90px;
+    }
+
+    .header-brand-title {
+        display: none; /* Simplifica el header en dispositivos móviles */
+    }
+
+    .section-content {
+        padding-left: 0;
+    }
+
+    section {
+        min-height: auto;
+        padding: 60px 20px;
+    }
+
+    .hero-section {
+        padding-top: calc(var(--header-height) + 40px);
+    }
+
+    .hero-section h2 { font-size: 2.2rem; }
+    .values-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .nav-menu { display: none; } /* En desarrollo posterior puedes suplirlo por un menú Hamburguesa */
+    .hero-buttons { flex-direction: column; }
+    .whatsapp-actions { flex-direction: column; }
+}
